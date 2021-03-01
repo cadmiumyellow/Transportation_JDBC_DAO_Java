@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4b70a8-9df4-40db-8468-e9ffa60a089a" name="Default Changelist" comment="added TransportMysqlDaoImpl class, amended main">
-      <change afterPath="$PROJECT_DIR$/src/test/java/RoutesMysqlDaoImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TransportMysqlDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/RoutesMysqlDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/RoutesMysqlDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/TransportMysqlDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/TransportMysqlDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/RoutesDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/RoutesDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/TransportDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/TransportDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/implementations/RoutesMysqlDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/implementations/RoutesMysqlDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/implementations/TransportMysqlDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/implementations/TransportMysqlDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/interfaces/RoutesDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/interfaces/RoutesDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/interfaces/TransportDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/interfaces/TransportDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/script.sql" afterDir="false" />
-    </list>
+    <list default="true" id="0e4b70a8-9df4-40db-8468-e9ffa60a089a" name="Default Changelist" comment="added tests, getAllTransport, getAllRoutes methods, amended gitignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614281261471</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added tests, getAllTransport, getAllRoutes methods, amended gitignore">
+      <created>1614615743430</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614615743430</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +159,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="added TransportMysqlDaoImpl class, amended main" />
-    <option name="LAST_COMMIT_MESSAGE" value="added TransportMysqlDaoImpl class, amended main" />
+    <MESSAGE value="added tests, getAllTransport, getAllRoutes methods, amended gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tests, getAllTransport, getAllRoutes methods, amended gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
