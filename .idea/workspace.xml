@@ -158,7 +158,35 @@
       <option name="project" value="LOCAL" />
       <updated>1614616225123</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="amended gitignore">
+      <created>1614616745296</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614616745296</updated>
+    </task>
+    <task id="LOCAL-00007" summary="amended gitignore">
+      <created>1614616860631</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614616860631</updated>
+    </task>
+    <task id="LOCAL-00008" summary="amended gitignore">
+      <created>1614616915138</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614616915138</updated>
+    </task>
+    <task id="LOCAL-00009" summary="amended gitignore">
+      <created>1614617038426</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1614617038426</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
