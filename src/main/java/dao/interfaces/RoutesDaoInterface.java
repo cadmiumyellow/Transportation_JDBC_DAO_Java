@@ -5,7 +5,7 @@ import models.Route;
 import java.util.List;
 
 public interface RoutesDaoInterface extends CrudInterface<Route, Integer> {
-
+    public List<Route> getAllRoutes();
 }
 
 

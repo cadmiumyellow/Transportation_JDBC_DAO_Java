@@ -1,7 +1,7 @@
-CREATE DATABASE transport;
---USE transport;
+CREATE DATABASE transport1;
+--USE transport1;
 
-CREATE TABLE transport
+CREATE TABLE transport1
 (
 	transportId INT NOT NULL AUTO_INCREMENT,
 	transportType VARCHAR(20) NOT NULL UNIQUE,

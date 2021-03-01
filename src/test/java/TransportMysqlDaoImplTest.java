@@ -1,80 +1,60 @@
-package dao.implementations;
-
-import dao.interfaces.TransportDaoInterface;
+import dao.implementations.RoutesMysqlDaoImpl;
+import dao.implementations.TransportMysqlDaoImpl;
 import models.Route;
 import models.Transport;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
-public class TransportMysqlDaoImpl implements TransportDaoInterface {
-
+public class TransportMysqlDaoImplTest {
     final static String URL = "jdbc:mysql://localhost:3306/transport4";
 
-    public List<Transport> getAllTransport() {
-        Transport transport = new Transport();
-        List<Transport> transportList = new ArrayList<>();
-        String sql = "SELECT * FROM transport";
+    @Test(priority=0)
+    public void getAllTransportTest() {
+        TransportMysqlDaoImpl test = new TransportMysqlDaoImpl();
+        List<Transport> res = test.getAllTransport();
 
-        Connection con = null;
-        Statement st = null;
-        ResultSet rs = null;
-
-        try {
-            con = DriverManager.getConnection(URL, "root", "Zest2018");
-            System.out.println("Connected to database");
-
-            st = con.createStatement();
-            st.executeQuery(sql);
-            rs = st.getResultSet();
-            while(rs.next()) {
-                transport = new Transport();
-                transport.setTransportId(rs.getInt("transportId"));
-                transport.setTransportType(rs.getString("transportType"));
-
-                transportList.add(transport);
-            }
-        } catch (SQLException ex) {
-
-        } finally {
-            try {
-                if (con != null) con.close();
-                if (st != null) st.close();
-                if (rs != null) rs.close();
-
-            } catch (SQLException ex) {
-
-            }
-        }
-        System.out.println(transportList);
-        return transportList;
-
+        Assert.assertEquals(res.size(), 3);
+        Assert.assertEquals(res.get(0).getTransportId(), 1);
+        Assert.assertEquals(res.get(0).getTransportType(), "bus");
+        Assert.assertEquals(res.get(1).getTransportId(), 2);
+        Assert.assertEquals(res.get(1).getTransportType(), "tram");
+        Assert.assertEquals(res.get(2).getTransportId(), 3);
+        Assert.assertEquals(res.get(2).getTransportType(), "trolleybus");
     }
 
-    @Override
-    public Transport add(Transport transport) {
+
+    @Test (priority=1)
+    public void addTransportTest() {
+        TransportMysqlDaoImpl test = new TransportMysqlDaoImpl();
+        Transport transport = new Transport();
+        Transport a = test.add(transport);
 
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "INSERT INTO transport (transportType) VALUES (?)";
+        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        String sql = "SELECT * FROM transport WHERE transportType = ?";
 
         try {
-            //Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(URL, "root", "Zest2018");
             System.out.println("Connected to database");
 
             ps = con.prepareStatement(sql);
             ps.setString(1, "metro");
-            ps.executeUpdate();
+            rs = ps.executeQuery();
+
+            String res = rs.getString(2);
+            Assert.assertEquals("metro", res);
 
             //} catch (ClassNotFoundException e) {
             //System.out.println("Can not find Mysql driver");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Can not execute SQL insert");
+            System.out.println("Can not execute SQL select");
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -87,17 +67,23 @@ public class TransportMysqlDaoImpl implements TransportDaoInterface {
             }
         }
         System.out.println("Transport added into transport");
-        return transport;
+        //return transport;
     }
 
+    @Test (priority=2)
+    public void TransportDeleteTest() {
+        TransportMysqlDaoImpl test = new TransportMysqlDaoImpl();
+        Transport transport = new Transport();
 
-    @Override
-    public void delete(Integer id) {
+        test.delete(4);
+
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "DELETE FROM transport WHERE transportId = ?";
+        final String URL = "jdbc:mysql://localhost:3306/transport4";
+
+        String sql = "SELECT * FROM transport WHERE transportId = 4";
 
         try {
             //Class.forName("com.mysql.cj.jdbc.Driver");
@@ -105,16 +91,18 @@ public class TransportMysqlDaoImpl implements TransportDaoInterface {
             System.out.println("Connected to database");
 
             ps = con.prepareStatement(sql);
-            ps.setInt(1, 4);
-            ps.executeUpdate();
+            ps.executeQuery();
+            rs = ps.getResultSet();
+            String res = rs.getString(2);
+            Assert.assertNull(res);
 
-            //} catch (ClassNotFoundException e) {
-            // System.out.println("Can not find Mysql driver");
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Can not execute SQL delete");
+
         } finally {
             try {
+
                 if (rs != null) rs.close();
                 if (ps != null) ps.close();
                 if (con != null) con.close();
@@ -124,59 +112,23 @@ public class TransportMysqlDaoImpl implements TransportDaoInterface {
                 System.out.println("Can not close result set, statement or connection");
             }
         }
-        System.out.println("Transport deleted from transport");
+        System.out.println("No more transport indeed");
     }
 
-    @Override
-    public void update(Transport transport, Integer id) {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String sql = "UPDATE IGNORE transport SET transportType=? WHERE transportId =?";
-
-        try {
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(URL, "root", "Zest2018");
-            System.out.println("Connected to database");
-
-            ps = con.prepareStatement(sql);
-            ps.setString(1, "taxi");
-            ps.setInt(2, 1);
-            ps.executeUpdate();
-
-            //} catch (ClassNotFoundException e) {
-            // System.out.println("Can not find Mysql driver");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Can not execute SQL update");
-        } finally {
-            try {
-                /*while (rs.next()) {
-                    int a = rs.getInt(1);
-                    String b = rs.getString(2);
-                    System.out.println("TransportId " + a + " now corresponds to transportType " + b);
-                }*/
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (con != null) con.close();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                System.out.println("Can not close result set, statement or connection");
-            }
-        }
-        System.out.println("Transport updated");
-    }
-
-    public Transport get(Integer id) {
+    @Test (priority=3)
+    public void TransportUpdateTest() {
+        TransportMysqlDaoImpl test = new TransportMysqlDaoImpl();
         Transport transport = new Transport();
 
+        test.update(transport, 2);
+
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM transport WHERE transportId = ?";
+        final String URL = "jdbc:mysql://localhost:3306/transport4";
+
+        String sql = "SELECT * FROM transport WHERE transportId = 1";
 
         try {
             //Class.forName("com.mysql.cj.jdbc.Driver");
@@ -184,22 +136,68 @@ public class TransportMysqlDaoImpl implements TransportDaoInterface {
             System.out.println("Connected to database");
 
             ps = con.prepareStatement(sql);
-            ps.setInt(1, 3);
             rs = ps.executeQuery();
 
-            // } catch (ClassNotFoundException e) {
-            //  System.out.println("Can not find Mysql driver");
+            while (rs.next()) {
+                int a = rs.getInt(1);
+                String b = rs.getString(2);
+                Assert.assertEquals(a, 1);
+                Assert.assertEquals(b, "taxi");
+                System.out.println("TransportId " + a + " now corresponds to transportType " + b);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Can not execute SQL select");
+            System.out.println("Can not execute SQL query");
+
         } finally {
             try {
-                while (rs.next()) {
-                    int a = rs.getInt(1);
-                    String b = rs.getString(2);
-                    System.out.println("TransportId is " + a + ", transportType is " + b);
-                }
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
 
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Can not close result set, statement or connection");
+            }
+        }
+        System.out.println("Route updated");
+    }
+
+    @Test (priority=4)
+    public void TransportGetTest() {
+        TransportMysqlDaoImpl test = new TransportMysqlDaoImpl();
+        Transport transport = new Transport();
+
+        Transport a = test.get(3);
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        final String URL = "jdbc:mysql://localhost:3306/transport4";
+
+        String sql = "SELECT * FROM transport WHERE transportId = 3";
+
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(URL, "root", "Zest2018");
+            System.out.println("Connected to database");
+
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int fst = rs.getInt(1);
+                String expected = rs.getString(2);
+                Assert.assertEquals(fst, 3);
+                Assert.assertEquals(expected, "trolleybus");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Can not execute SQL query");
+
+        } finally {
+            try {
                 if (rs != null) rs.close();
                 if (ps != null) ps.close();
                 if (con != null) con.close();
@@ -210,7 +208,6 @@ public class TransportMysqlDaoImpl implements TransportDaoInterface {
             }
         }
         System.out.println("Transport selected");
-        return transport;
     }
-}
 
+}

@@ -8,6 +8,11 @@ public class Route {
 
     }
 
+    public Route(int routeId, int routeNumber) {
+        this.routeId = routeId;
+        this.routeNumber = routeNumber;
+    }
+
     public int getRouteId() {
         return routeId;
     }
