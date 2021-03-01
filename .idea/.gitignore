@@ -147,3 +147,4 @@ buildNumber.properties
 
 # Added manually
 .idea/
+target/*.class

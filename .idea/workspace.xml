@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4b70a8-9df4-40db-8468-e9ffa60a089a" name="Default Changelist" comment="added tests, getAllTransport, getAllRoutes methods, amended gitignore" />
+    <list default="true" id="0e4b70a8-9df4-40db-8468-e9ffa60a089a" name="Default Changelist" comment="amended gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +144,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614615743430</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="amended gitignore">
+      <created>1614616056889</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614616056889</updated>
+    </task>
+    <task id="LOCAL-00005" summary="amended gitignore">
+      <created>1614616225123</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614616225123</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,7 +177,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="added TransportMysqlDaoImpl class, amended main" />
     <MESSAGE value="added tests, getAllTransport, getAllRoutes methods, amended gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tests, getAllTransport, getAllRoutes methods, amended gitignore" />
+    <MESSAGE value="amended gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="amended gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
