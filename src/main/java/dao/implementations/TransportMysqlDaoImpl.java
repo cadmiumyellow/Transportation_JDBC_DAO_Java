@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TransportMysqlDaoImpl implements TransportDaoInterface {
 
-    final static String URL = "jdbc:mysql://localhost:3306/transport4";
+    final static String URL = "jdbc:mysql://localhost:3306/transport6";
 
     public List<Transport> getAllTransport() {
         Transport transport = new Transport();

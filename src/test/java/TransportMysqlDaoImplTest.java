@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.List;
 
 public class TransportMysqlDaoImplTest {
-    final static String URL = "jdbc:mysql://localhost:3306/transport4";
+    final static String URL = "jdbc:mysql://localhost:3306/transport6";
 
     @Test(priority=0)
     public void getAllTransportTest() {
@@ -36,7 +36,7 @@ public class TransportMysqlDaoImplTest {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
         String sql = "SELECT * FROM transport WHERE transportType = ?";
 
         try {
@@ -81,7 +81,7 @@ public class TransportMysqlDaoImplTest {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         String sql = "SELECT * FROM transport WHERE transportId = 4";
 
@@ -126,7 +126,7 @@ public class TransportMysqlDaoImplTest {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         String sql = "SELECT * FROM transport WHERE transportId = 1";
 
@@ -175,7 +175,7 @@ public class TransportMysqlDaoImplTest {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         String sql = "SELECT * FROM transport WHERE transportId = 3";
 

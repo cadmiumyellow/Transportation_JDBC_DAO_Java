@@ -13,7 +13,7 @@ import static java.lang.Class.*;
 
 public class RoutesMysqlDaoImpl implements RoutesDaoInterface {
 
-    final static String URL = "jdbc:mysql://localhost:3306/transport4";
+    final static String URL = "jdbc:mysql://localhost:3306/transport6";
 
     public List<Route> getAllRoutes() {
         Route route = new Route();
@@ -109,7 +109,7 @@ public class RoutesMysqlDaoImpl implements RoutesDaoInterface {
             System.out.println("Connected to database");
 
             ps = con.prepareStatement(sql);
-            ps.setInt(1, 115);
+            ps.setInt(1, 5);
             ps.executeUpdate();
 
         //} catch (ClassNotFoundException e) {

@@ -1,5 +1,5 @@
-CREATE DATABASE transport5;
---USE transport5;
+CREATE DATABASE transport6;
+--USE transport6;
 
 CREATE TABLE transport
 (

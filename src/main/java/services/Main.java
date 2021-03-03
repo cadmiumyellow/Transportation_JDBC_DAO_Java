@@ -1,10 +1,10 @@
 package services;
 
-import dao.implementations.RoutesMysqlDaoImpl;
-import dao.implementations.TransportMysqlDaoImpl;
 import models.Route;
 import models.Transport;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -12,41 +12,57 @@ public class Main {
         System.out.println("You can add, delete, update and read from Routes table");
         System.out.println("You can add, delete, update and read from Transport table");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Table Routes: to add type 1, to delete type 2, to update type 3, to read type 4");
-        System.out.println("Table Transport: to add type 5, to delete type 6, to update type 7, to read type 8");
-        int i = sc.nextInt();
+        System.out.println("Table Routes: to see all routes type 1, to add type 2, to delete type 3, to update type 4, to read type 5");
+        System.out.println("Table Transport: to see all transport type 6, to add type 7, to delete type 8, to update type 9, to read type 10");
+        int choice = sc.nextInt();
 
-        RoutesMysqlDaoImpl test = new RoutesMysqlDaoImpl();
-        TransportMysqlDaoImpl test1 = new TransportMysqlDaoImpl();
-        switch (i) {
+        RouteService rService = new RouteService();
+        TransportService tService = new TransportService();
 
+        switch (choice) {
             case 1:
-                test.add(new Route());
+                List<Route> routeList = new ArrayList<>();
+                routeList = rService.getAllRoutes();
+
+                for (int k = 0; k < routeList.size(); k++) {
+                    System.out.println(routeList.get(k).getRouteNumber());
+                }
                 break;
             case 2:
-                test.delete(5);
+                rService.add(new Route());
                 break;
             case 3:
-                test.update(new Route(), 5);
+                rService.delete(5);
                 break;
             case 4:
-                test.get(3);
+                rService.update(new Route(), 2);
                 break;
             case 5:
-                test1.add(new Transport());
+                rService.get(3);
                 break;
             case 6:
-                test1.delete(1);
+                List<Transport> transportList = new ArrayList<>();
+                transportList = tService.getAllTransport();
+                for (int j = 0; j < transportList.size(); j++) {
+                    System.out.println(transportList.get(j).getTransportType());
+                }
                 break;
             case 7:
-                test1.update(new Transport(), 1);
+                tService.add(new Transport());
                 break;
             case 8:
-                test1.get(3);
+                tService.delete(4);
+                break;
+            case 9:
+                tService.update(new Transport(), 1);
+                break;
+            case 10:
+                tService.get(3);
                 break;
             default:
-                System.out.println("You should choose an existing option (1-8). Please try again");
+                System.out.println("You should choose an existing option (1-10). Please try again");
 
         }
+        sc.close();
     }
 }

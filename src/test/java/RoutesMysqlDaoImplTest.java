@@ -16,7 +16,7 @@ public class RoutesMysqlDaoImplTest {
 
     @Test(priority=0)
     public void getAllRoutesTest() {
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         RoutesMysqlDaoImpl test = new RoutesMysqlDaoImpl();
         List<Route> res = test.getAllRoutes();
@@ -36,7 +36,7 @@ public class RoutesMysqlDaoImplTest {
 
     @Test (priority=1)
     public void RouteAddTest() {
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         RoutesMysqlDaoImpl test = new RoutesMysqlDaoImpl();
         Route route = new Route();
@@ -82,7 +82,7 @@ public class RoutesMysqlDaoImplTest {
 
     @Test (priority=2)
     public void RouteDeleteTest() {
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         RoutesMysqlDaoImpl test = new RoutesMysqlDaoImpl();
         Route route = new Route();
@@ -126,7 +126,7 @@ public class RoutesMysqlDaoImplTest {
 
     @Test (priority=3)
     public void RouteUpdateTest() {
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         RoutesMysqlDaoImpl test = new RoutesMysqlDaoImpl();
         Route route = new Route();
@@ -175,7 +175,7 @@ public class RoutesMysqlDaoImplTest {
 
     @Test (priority=4)
     public void RouteGetTest() {
-        final String URL = "jdbc:mysql://localhost:3306/transport4";
+        final String URL = "jdbc:mysql://localhost:3306/transport6";
 
         RoutesMysqlDaoImpl test = new RoutesMysqlDaoImpl();
         Route route = new Route();
